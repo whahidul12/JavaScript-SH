@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                background-color: #313131;
+                font-family: Arial, Helvetica, sans-serif;
+                height: 90vh;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            .container {
+                color: wheat;
+                text-align: center;
+            }
+            .display {
+                font-size: 20px;
+            }
+            input {
+                border: none;
+                outline: none;
+                background-color: beige;
+                color: #000;
+                padding: 10px;
+                border-radius: 16px;
+                width: 48px;
+                margin-right: 12px;
+            }
+            button {
+                padding: 10px 20px;
+                background-color: beige;
+                border: none;
+                outline: none;
+                border-radius: 16px;
+                transition: 0.5s all ease;
+            }
+            button:hover {
+                cursor: pointer;
+                background-color: wheat;
+            }
+            .start-btn {
+                margin-right: 12px;
+            }
+            /* Hide the up and down arrows on input[type=number] for Chrome, Safari, Edge, and Opera */
+            input[type="number"]::-webkit-outer-spin-button,
+            input[type="number"]::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Hide the up and down arrows on input[type=number] for Firefox */
+            input[type="number"] {
+                -moz-appearance: textfield;
+                appearance: textfield;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="heading">Clam Your Mind</h1>
+            <p>Please input a time to meditate.</p>
+            <label for="minutes"
+                >minutes: <input type="number" id="minutes" placeholder="05"
+            /></label>
+            <label for="seconds"
+                >seconds: <input type="number" id="seconds" placeholder="30"
+            /></label>
+            <p class="display">Brith In</p>
+            <button class="start-btn">Start</button>
+            <button class="stop-btn">Stop</button>
+        </div>
+        <script src="./index.js"></script>
+    </body>
+</html>
