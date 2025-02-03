@@ -6,18 +6,30 @@ const stopBtn = document.querySelector(".stop-btn");
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
-const startTimer = (duration) => {
-    const timerInterval = setInterval(() => {
+let timerInterval;
 
-        let displayMinutes = parseInt(duration / 60, 10)
-        let displaySeconds = parseInt(duration % 60, 10)
+const startTimer = (totalTime) => {
+    let duration = totalTime;
+    timerInterval = setInterval(() => {
 
-        display.textContent = `${displayMinutes} : ${displaySeconds}`
+        let displayMinutes = parseInt(duration / 60, 10);
+        let displaySeconds = parseInt(duration % 60, 10);
+
+        displayMinutes <= 9 ? displayMinutes = `0${displayMinutes}` : displayMinutes;
+        displaySeconds <= 9 ? displaySeconds = `0${displaySeconds}` : displaySeconds;
+
+
+
+        display.textContent = `${displayMinutes} : ${displaySeconds}`;
         console.log(">>", duration);
 
         if (--duration < 0) {
             clearInterval(timerInterval)
-            display.textContent = `Breath Out`
+            display.textContent = `Breath Out`;
+
+            setTimeout(() => {
+                startTimer(totalTime);
+            }, 3000);
         }
     }, 1000);
 }
@@ -33,7 +45,8 @@ startBtn.addEventListener("click", () => {
     startTimer(totalTime);
 })
 stopBtn.addEventListener("click", () => {
-
+    clearInterval(timerInterval)
+    display.textContent = `Breath Out`
 })
 
 
