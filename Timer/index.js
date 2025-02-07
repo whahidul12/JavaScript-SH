@@ -5,6 +5,7 @@ const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
 let timerInterval;
+let isRuning = false
 
 const startTimer = (totalTime) => {
     let duration = totalTime;
@@ -13,10 +14,8 @@ const startTimer = (totalTime) => {
         let displayMinutes = parseInt(duration / 60, 10);
         let displaySeconds = parseInt(duration % 60, 10);
 
-        displayMinutes <= 9 ? displayMinutes = `0${displayMinutes}` : displayMinutes;
-        displaySeconds <= 9 ? displaySeconds = `0${displaySeconds}` : displaySeconds;
-
-
+        displayMinutes = displayMinutes <= 9 ? `0${displayMinutes}` : displayMinutes;
+        displaySeconds = displaySeconds <= 9 ? `0${displaySeconds}` : displaySeconds;
 
         display.textContent = `${displayMinutes} : ${displaySeconds}`;
         console.log(">>", duration);
@@ -26,25 +25,26 @@ const startTimer = (totalTime) => {
             display.textContent = `Breath Out`;
 
             setTimeout(() => {
+                display.textContent = `Breath In`;
                 startTimer(totalTime);
             }, 3000);
         }
+        isRuning = true;
     }, 1000);
 }
-
-
-
-
 
 startBtn.addEventListener("click", () => {
     let storeMinutes = minutes.value;
     let storeSeconds = seconds.value;
     let totalTime = ((parseInt(storeMinutes) * 60) + parseInt(storeSeconds));
-    startTimer(totalTime);
+    if (!isRuning) {
+        startTimer(totalTime);
+    }
 })
 stopBtn.addEventListener("click", () => {
     clearInterval(timerInterval)
-    display.textContent = `Breath Out`
+    display.textContent = `Breath In`;
+    isRuning = false;
 })
 
 
