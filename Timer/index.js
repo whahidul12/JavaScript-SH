@@ -1,3 +1,4 @@
+"use strict";
 const display = document.querySelector(".display");
 const startBtn = document.querySelector(".start-btn");
 const stopBtn = document.querySelector(".stop-btn");
@@ -5,6 +6,7 @@ const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
 let timerInterval;
+let timeout;
 let isRuning = false
 
 const startTimer = (totalTime) => {
@@ -24,7 +26,7 @@ const startTimer = (totalTime) => {
             clearInterval(timerInterval)
             display.textContent = `Breath Out`;
 
-            setTimeout(() => {
+            timeout = setTimeout(() => {
                 display.textContent = `Breath In`;
                 startTimer(totalTime);
             }, 3000);
@@ -42,7 +44,8 @@ startBtn.addEventListener("click", () => {
     }
 })
 stopBtn.addEventListener("click", () => {
-    clearInterval(timerInterval)
+    clearInterval(timerInterval);
+    clearTimeout(timeout);
     display.textContent = `Breath In`;
     isRuning = false;
 })
