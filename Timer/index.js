@@ -1,5 +1,3 @@
-"use strict";
-
 const display = document.querySelector(".display");
 const startBtn = document.querySelector(".start-btn");
 const stopBtn = document.querySelector(".stop-btn");
