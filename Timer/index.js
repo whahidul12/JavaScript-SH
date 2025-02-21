@@ -5,6 +5,9 @@ const stopBtn = document.querySelector(".stop-btn");
 const minutes = document.querySelector("#minutes");
 const seconds = document.querySelector("#seconds");
 
+// todo const light = 12;////////////////////////////////////////////////////////////////
+// todo const light = 12;\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
 let timerInterval;
 let timeout;
 let isRuning = false

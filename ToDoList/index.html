@@ -4,16 +4,20 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>To Do App</title>
+        <style>
+            .list-container{
+                list-style: none;
+            }
+        </style>
     </head>
     <body>
         <h1>To Do List!</h1>
         <div>
             <input type="text" name="" id="input" placeholder="Enter your task" />
             <button type="button" id="add">Add</button>
-            <button type="button">Delete Checked Items</button>
-            <p class="list-container"></p>
+            <button type="button" onclick="deleteChecked()">Delete Checked</button>
+            <ul class="list-container"><ul/>
         </div>
         <script src="./script.js"></script>
     </body>
-    sc
 </html>
