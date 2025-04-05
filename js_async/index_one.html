@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Whahidul Islam</h1>
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <script>
+            const changeH1 = () => {
+                document.querySelector("h1").innerHTML = "<h6>Rafi is best</h6>";
+            };
+            const changeH1setTO = setTimeout(changeH1, 2000);
+            document.querySelector("#stop").addEventListener("click", () => {
+                clearTimeout(changeH1setTO);
+                console.log("stop");
+            });
+        </script>
+    </body>
+</html>
